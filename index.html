@@ -127,14 +127,23 @@
       </ul>
     </div>
     <div class="calculator">
-      <h3>Quick Solar Capacity Guide</h3>
-      <label for="units">Average monthly electricity use (units)</label>
-      <input id="units" type="number" min="0" placeholder="Example: 250">
-      <button class="button primary" onclick="estimate()">Check indicative range</button>
-      <div id="result" class="result">Enter your monthly units to see an indicative range.</div>
-      <small>Indicative only. Final capacity depends on site conditions, sanctioned load, roof area and applicable DISCOM requirements.</small>
-    </div>
+  <h3>Solar Savings Calculator</h3>
+
+  <label for="units">Approx. Monthly Electricity Bill (₹)</label>
+
+  <input id="units" type="number" min="0" placeholder="Example: 3000">
+
+  <button class="button primary" onclick="estimate()">Calculate Solar Requirement</button>
+
+  <div id="result" class="result">
+    Enter your monthly electricity bill to see an indicative solar range.
   </div>
+
+  <small>
+    Indicative estimate only. Final system capacity depends on electricity consumption,
+    roof area, site conditions, sanctioned load and applicable DISCOM requirements.
+  </small>
+</div>
 </section>
 
 <section id="subsidy" class="section">
