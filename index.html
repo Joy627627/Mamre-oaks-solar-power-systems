@@ -25,7 +25,44 @@
 </header>
 
 <main>
-<section id="home" class="hero">
+<section class="section quote-section">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">FREE SOLAR QUOTATION</span>
+      <h2>Let's calculate your solar requirement.</h2>
+      <p>Send us your details and we'll contact you on WhatsApp to discuss a suitable solar solution for your home or business.</p>
+      <ul class="checklist">
+        <li>Free preliminary consultation</li>
+        <li>Electricity-bill assessment</li>
+        <li>Suitable system-size guidance</li>
+        <li>Quotation and installation discussion</li>
+      </ul>
+    </div>
+
+    <div class="calculator">
+      <h3>Request Your Free Quotation</h3>
+
+      <label for="customerName">Your Name</label>
+      <input id="customerName" type="text" placeholder="Enter your name">
+
+      <label for="customerLocation">Location</label>
+      <input id="customerLocation" type="text" placeholder="Example: Hyderabad">
+
+      <label for="customerBill">Approx. Monthly Electricity Bill</label>
+      <input id="customerBill" type="number" min="0" placeholder="Example: ₹3000">
+
+      <label for="customerType">Requirement</label>
+      <select id="customerType">
+        <option value="Home">Home</option>
+        <option value="Business">Business</option>
+        <option value="Agriculture">Agriculture</option>
+      </select>
+
+      <button class="button primary full" onclick="sendQuotation()">Send Enquiry on WhatsApp</button>
+    </div>
+  </div>
+</section>
+  <section id="home" class="hero">
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">SOLAR ENERGY SOLUTIONS • TELANGANA</span>
@@ -181,6 +218,30 @@ function estimate(){
   if (u <= 150) r.innerHTML = '<b>Indicative range: 1–2 kW</b><br>Suitable capacity should be confirmed after a bill and site assessment.';
   else if (u <= 300) r.innerHTML = '<b>Indicative range: 2–3 kW</b><br>Suitable capacity should be confirmed after a bill and site assessment.';
   else r.innerHTML = '<b>Indicative range: above 3 kW</b><br>Final sizing should be confirmed after a bill, roof survey and load assessment.';
+}
+function sendQuotation(){
+  const name = document.getElementById('customerName').value.trim();
+  const location = document.getElementById('customerLocation').value.trim();
+  const bill = document.getElementById('customerBill').value.trim();
+  const type = document.getElementById('customerType').value;
+
+  if (!name || !location || !bill) {
+    alert('Please enter your name, location and monthly electricity bill.');
+    return;
+  }
+
+  const message =
+    'Hello Mamre Oaks Solar Power Systems.%0A%0A' +
+    'I would like a free solar quotation.%0A%0A' +
+    'Name: ' + encodeURIComponent(name) + '%0A' +
+    'Location: ' + encodeURIComponent(location) + '%0A' +
+    'Monthly Electricity Bill: ₹' + encodeURIComponent(bill) + '%0A' +
+    'Requirement: ' + encodeURIComponent(type);
+
+  window.open(
+    'https://wa.me/919885086416?text=' + message,
+    '_blank'
+  );
 }
 </script>
 </body>
