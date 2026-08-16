@@ -286,13 +286,22 @@ function sendQuotation(){
     return;
   }
 
-  const message =
-    'Hello Mamre Oaks Solar Power Systems.%0A%0A' +
-    'I would like a free solar quotation.%0A%0A' +
-    'Name: ' + encodeURIComponent(name) + '%0A' +
-    'Location: ' + encodeURIComponent(location) + '%0A' +
-    'Monthly Electricity Bill: ₹' + encodeURIComponent(bill) + '%0A' +
-    'Requirement: ' + encodeURIComponent(type);
+  const message = encodeURIComponent(
+`☀️ NEW SOLAR ENQUIRY
+
+Hello Mamre Oaks Solar Power Systems,
+
+I would like to get a free solar quotation.
+
+👤 Name: ${name}
+📍 Location: ${location}
+💰 Monthly Electricity Bill: ₹${bill}
+🏠 Requirement: ${type}
+
+Please contact me for further details and a site assessment.
+
+Thank you.`
+);
 
   window.open(
     'https://wa.me/919885086416?text=' + message,
