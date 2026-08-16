@@ -44,6 +44,8 @@
 
       <label for="customerName">Your Name</label>
       <input id="customerName" type="text" placeholder="Enter your name">
+      <label for="customerMobile">Mobile Number</label>
+<input id="customerMobile" type="tel" placeholder="Your mobile number">
 
       <label for="customerLocation">Location</label>
       <input id="customerLocation" type="text" placeholder="Example: Hyderabad">
@@ -277,11 +279,12 @@ function estimate(){
 }
 function sendQuotation(){
   const name = document.getElementById('customerName').value.trim();
+  const mobile = document.getElementById('customerMobile').value.trim();
   const location = document.getElementById('customerLocation').value.trim();
   const bill = document.getElementById('customerBill').value.trim();
   const type = document.getElementById('customerType').value;
 
-  if (!name || !location || !bill) {
+  if (!name || !mobile || !location || !bill) {
     alert('Please enter your name, location and monthly electricity bill.');
     return;
   }
@@ -295,6 +298,7 @@ I would like to get a free solar quotation.
 
 👤 Name: ${name}
 📍 Location: ${location}
+📱 Mobile: ${mobile}
 💰 Monthly Electricity Bill: ₹${bill}
 🏠 Requirement: ${type}
 
